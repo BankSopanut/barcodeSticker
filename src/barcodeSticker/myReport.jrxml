@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="myReport" pageWidth="396" pageHeight="612" orientation="Landscape" columnWidth="356" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" whenResourceMissingType="Empty" uuid="08cd664c-b99f-4b9b-9954-d674970899e0">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="GP_LawCourt"/>
+	<property name="com.jaspersoft.studio.report.description"/>
+	<parameter name="sBlackRecGen" class="java.util.Collection"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT BlackRecGen
+FROM thcommand
+WHERE $X{IN, BlackRecGen, sBlackRecGen}]]>
+	</queryString>
+	<field name="BlackRecGen" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="BlackRecGen"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="thcommand"/>
+	</field>
+	<detail>
+		<band height="188" splitType="Stretch">
+			<property name="com.jaspersoft.studio.layout"/>
+			<componentElement>
+				<reportElement x="-2" y="60" width="360" height="125" uuid="ad539a1f-f70c-45e3-9a8d-46eb07cba713"/>
+				<jr:barbecue xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" type="Code39 (Extended)" drawText="true" checksumRequired="false">
+					<jr:codeExpression><![CDATA[$F{BlackRecGen}]]></jr:codeExpression>
+				</jr:barbecue>
+			</componentElement>
+		</band>
+	</detail>
+</jasperReport>
