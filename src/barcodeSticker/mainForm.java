@@ -14,12 +14,10 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 import net.sf.jasperreports.engine.JRException;
-import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
-import net.sf.jasperreports.engine.design.JasperDesign;
-import net.sf.jasperreports.engine.xml.JRXmlLoader;
+import net.sf.jasperreports.engine.util.JRLoader;
 import net.sf.jasperreports.view.JasperViewer;
 
 import javax.swing.JScrollPane;
@@ -264,9 +262,8 @@ public class mainForm {
 			param.put("sBlackRecGen", barcodeList);
 			
 			// Report Viewer
-			InputStream file = getClass().getResourceAsStream("myReport.jrxml");
-			JasperDesign jd = JRXmlLoader.load(file);
-			JasperReport jr = JasperCompileManager.compileReport(jd);
+			InputStream file = getClass().getResourceAsStream("myReport.jasper");
+			JasperReport jr = (JasperReport) JRLoader.loadObject(file);
 			JasperPrint jp = JasperFillManager.fillReport(jr, param, connect);
 			JasperViewer.viewReport(jp, false);
 			
