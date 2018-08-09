@@ -16,6 +16,7 @@ import java.sql.Statement;
 import java.awt.event.ActionEvent;
 
 
+@SuppressWarnings("serial")
 public class InsertForm extends JDialog {
 	private JTextField txtID;
 	private JTextField txtCommandNumber;

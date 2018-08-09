@@ -55,7 +55,7 @@ public class mainForm {
 	public mainForm() {		
 		frmBarcodeSticker = new JFrame();
 		frmBarcodeSticker.setResizable(false);
-		frmBarcodeSticker.setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\hipho\\eclipse-workspace\\barcodeSticker\\lib\\icons.png"));
+		frmBarcodeSticker.setIconImage(Toolkit.getDefaultToolkit().getImage("icons.png"));
 		frmBarcodeSticker.setTitle("Barcode Sticker");
 		frmBarcodeSticker.setBounds(100, 100, 415, 349);
 		frmBarcodeSticker.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -174,6 +174,7 @@ public class mainForm {
 	private void PopulateData() {
 		
 		database.setModel(new DefaultTableModel());
+		@SuppressWarnings("serial")
 		DefaultTableModel model = new DefaultTableModel() {
 			
 			public Class<?> getColumnClass(int column) {
