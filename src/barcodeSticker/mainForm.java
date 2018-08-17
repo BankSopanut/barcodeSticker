@@ -126,7 +126,6 @@ public class mainForm {
 		});
 		scrollPane.setViewportView(database);
 		
-		
 		JButton btnInsert = new JButton("เพิ่มใหม่");
 		btnInsert.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		btnInsert.setBounds(22, 275, 89, 23);
@@ -145,7 +144,6 @@ public class mainForm {
 		btnDelete.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		btnDelete.setBounds(121, 275, 89, 23);
 		frmBarcodeSticker.getContentPane().add(btnDelete);
-		
 		btnDelete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -210,7 +208,7 @@ public class mainForm {
 			s = connect.createStatement();
 			
 			String sql = "SELECT * FROM  thCommand " +
-					"WHERE CommandNumber like '%" + txtCommand.getText() + "%' " +
+					"WHERE CommandNumber like '%" + txtCommand.getText().trim() + "%' " +
 					"ORDER BY ID ASC";
 			
 			ResultSet rec = s.executeQuery(sql);
@@ -226,7 +224,7 @@ public class mainForm {
             }
              
 		} catch (Exception e) {
-			JOptionPane.showMessageDialog(null, e.getMessage());
+			JOptionPane.showMessageDialog(null, "ไม่สามารถเชื่อมต่อกับฐานข้อมูลได้");
 			e.printStackTrace();
 		}
 		
